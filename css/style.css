@@ -1,0 +1,967 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap");
+/*  
+Oswald: 200, 300, 400, 500, 600, 700
+Roboto: 300, 400, 500, 700, 900
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --bg_dark: rgb(3, 0, 15);
+  --primary_color: #ffe824;
+  --sec_color: rgb(255, 0, 119);
+  --op_primary_color: #111;
+  --op_sec_color: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #222;
+  position: relative;
+}
+
+section {
+  padding: 7rem 0;
+  overflow: hidden;
+}
+@media (max-width: 991px) {
+  section {
+    padding: 5rem 0;
+  }
+}
+@media (max-width: 767px) {
+  section {
+    padding: 3rem 0;
+  }
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.owl-nav {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+.owl-nav button {
+  background: none !important;
+}
+.owl-nav button span {
+  color: #fff;
+  background-color: var(--sec_color) !important;
+  font-size: 2rem;
+  padding: 0.3rem 1rem !important;
+  margin: 0 1rem;
+}
+.owl-theme .owl-dots .owl-dot span {
+  width: 1.2rem;
+  height: 2px;
+}
+
+.heading {
+  color: #fff;
+  font-size: 2.4rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 767px) {
+  .heading {
+    font-size: 2rem;
+  }
+}
+
+/********************************************* header *********************************************/
+header {
+  width: 100%;
+  padding: 0.8rem 0.4rem;
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.07);
+  z-index: 9;
+  transition: all 0.77s;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .container a.brand {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.8rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+header .container a.brand img {
+  position: relative;
+  top: -5px;
+  height: 2.5rem;
+  width: 2.5rem;
+  transform-origin: top;
+  animation: rotate 1.7s infinite linear alternate;
+}
+@keyframes rotate {
+  0% {
+    transform: rotateZ(-5deg);
+  }
+  100% {
+    transform: rotateZ(5deg);
+  }
+}
+
+header .container nav {
+  display: flex;
+  align-items: center;
+}
+header .container nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  display: flex;
+  padding: 2px;
+  margin: 0 7px;
+  transition: all 0.27s;
+}
+header .container nav a:hover {
+  color: var(--sec_color);
+}
+
+header .toggle {
+  color: var(--sec_color);
+  font-size: 1.8rem;
+  display: none;
+}
+
+@media (max-width: 767px) {
+  header .container nav {
+    display: none;
+  }
+  header .container nav.active {
+    display: flex;
+    position: fixed;
+    top: 4.4rem;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    background: #222;
+    z-index: 9;
+  }
+  header .container nav.active a {
+    font-size: 1.4rem;
+    font-family: "Oswald", sans-serif;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin: 0.7rem 0;
+  }
+  header .toggle {
+    display: flex;
+  }
+}
+
+/********************************************* mobile nav *********************************************/
+.mobnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: none;
+}
+
+.mobnav i#close {
+  color: var(--sec_color);
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 2.5rem;
+  padding: 14px 18px;
+  margin: 14px 14px 0 0;
+  z-index: 99;
+}
+
+.mobnav ul {
+  height: 100%;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 44px;
+  position: relative;
+  background: #222;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.mobnav ul li {
+  list-style-type: none;
+  display: block;
+}
+
+.mobnav ul li a {
+  text-decoration: none !important;
+  color: #eee;
+  margin: 0.6rem 0;
+  display: flex;
+  text-align: left;
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  left: 0%;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.mobnav ul li a:hover {
+  text-decoration: none;
+  color: var(--sec_color);
+  transform: translateX(10px);
+}
+
+/********************************************* home section *********************************************/
+#home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-position: top center;
+  background-size: cover;
+  position: relative;
+}
+
+#home .Slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.Slider .Slider-slide {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-image: url("../images/bg1.jpg");
+  transition: opacity 1s ease-in-out;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0;
+}
+.Slider .Slider-slide.show {
+  opacity: 1;
+}
+
+#home .container {
+  transform: translateY(25%);
+  position: relative;
+  z-index: 2;
+}
+
+#home h1 {
+  color: #fff;
+  font-size: 3.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  max-width: 30rem;
+}
+@media (max-width: 767px) {
+  #home h1 {
+    font-size: 2.4rem;
+  }
+}
+
+#home button {
+  color: var(--op_sec_color);
+  background-color: var(--sec_color);
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 2px;
+  padding: 0.8rem 1.4rem;
+  margin: 1.5rem 0;
+  transition: all 0.37s;
+}
+#home button:hover {
+  background-color: transparent;
+  border-color: var(--sec_color);
+}
+
+/* about section */
+#about {
+  padding: 0;
+  background-color: var(--bg_dark);
+}
+#about .content {
+  padding: 10rem 0;
+}
+#about .content h2 {
+  color: #fff;
+  font-size: 2.4rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+#about .content h4 {
+  color: #888;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 1.4rem 0;
+}
+@media (max-width: 767px) {
+  #about .content h4 {
+    font-size: 1.4rem;
+  }
+}
+#about .content p {
+  color: #999;
+  line-height: 1.6;
+}
+
+#about .img_sec {
+  display: flex;
+  height: 100%;
+}
+
+#about .img_sec img {
+  height: 100%;
+  width: calc(100% / 3);
+  object-fit: cover;
+  margin: 0 3px;
+  min-height: 26rem;
+}
+
+/* classes */
+#classes .card {
+  height: 34rem;
+  min-height: 14rem;
+  margin: 1rem 0;
+  border: none;
+  overflow: hidden;
+  transition: all 0.27s;
+}
+#classes .card:hover {
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.7);
+}
+#classes .card .image {
+  height: 50%;
+  width: 100%;
+  overflow: hidden;
+}
+#classes .card img {
+  height: 100%;
+  width: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: all 0.77s;
+}
+#classes .card:hover .image img {
+  transform: scale(1.1);
+}
+#classes .card .body {
+  background-color: #fff;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+#classes .card .body h3 {
+  color: var(--sec_color);
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+}
+#classes .card .body h4 {
+  color: #777;
+  font-size: 1.3rem;
+  margin: 0.8rem 0;
+}
+#classes .card .body p {
+  color: #222;
+  font-weight: 600;
+}
+
+#classes .row-2 {
+  min-height: 21rem;
+  height: 17rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#classes .row-2 .image {
+  width: 100%;
+  height: 100%;
+}
+
+#classes .row-2 .body {
+  width: 32%;
+  height: 100%;
+}
+
+@media (max-width: 991px) {
+  #classes .row-2 .body {
+    width: 45%;
+  }
+}
+@media (max-width: 767px) {
+  #classes .row-2 {
+    min-height: 35rem;
+    flex-direction: column;
+  }
+  #classes .row-2 .body {
+    width: 105%;
+  }
+}
+
+/************************************ events ************************************/
+#events {
+  background-color: var(--bg_dark);
+  padding-bottom: 0;
+}
+
+#events .card {
+  border: none;
+  margin: 1rem;
+}
+
+#events .card .image {
+  max-height: 24rem;
+  height: 17rem;
+  overflow: hidden;
+}
+
+#events .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: all 0.77s;
+}
+
+#events .card:hover img {
+  transform: scale(1.1);
+}
+
+#events .card .body {
+  display: flex;
+  align-items: center;
+  background-color: var(--primary_color);
+}
+
+#events .card .body .date {
+  padding: 1rem 2rem;
+  color: var(--primary_color);
+  background-color: #222;
+}
+#events .card .body .date h5 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#events .card .body .date h5 span {
+  font-size: 2.5rem;
+  font-weight: 900;
+  display: block;
+}
+
+#events .card .body p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+/************************************* event video carousel *************************************/
+.video_carousel {
+  padding-top: 2rem;
+  background: var(--bg_dark);
+}
+.video_carousel .single_item {
+  height: 24rem;
+  padding: 1rem;
+  background: #333;
+  border-radius: 4px;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.7);
+  margin: 1rem 0;
+}
+.video_carousel .single_item iframe {
+  height: 100%;
+  width: 100%;
+}
+
+/********************************************* image gallery *********************************************/
+#gallery .display {
+  height: 30rem;
+  width: 45rem;
+  max-width: 100%;
+  background: url("../images/class-1.jpg");
+  background-position: center;
+  background-size: cover;
+  margin: 1rem auto;
+  border-radius: 4px;
+  border: 2px solid #444;
+}
+#gallery .img_row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 48rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+#gallery .img_row .box {
+  height: 6rem;
+  width: 6rem;
+  overflow: hidden;
+  margin: 1rem 0.7rem;
+  background-position: center;
+  background-size: cover;
+  border-radius: 4px;
+  border: 2px solid #888;
+  cursor: pointer;
+}
+
+#gallery .owl-stage {
+  margin: 0 auto;
+}
+
+/************************************* our team *************************************/
+#team {
+  background: var(--bg_dark);
+}
+#team .profile {
+  display: inline-block;
+  margin: 1rem 0;
+}
+#team .profile .image {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+#team .profile .image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.42s;
+}
+#team .profile .image .soc_icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+}
+#team .profile .image .soc_icons a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.14rem;
+  display: flex;
+  padding: 3px;
+  margin: 0 0.4rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5.4rem);
+  transition: all var(--d) ease-in-out;
+}
+#team .profile .image .soc_icons a:hover {
+  color: var(--sec_color);
+}
+
+#team .profile:hover img {
+  opacity: 0.67;
+}
+#team .profile:hover .soc_icons a {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#team .profile .body {
+  padding: 1rem 0.5rem;
+  text-align: center;
+}
+#team .profile .body h3 {
+  color: #fff;
+  font-size: 1.9rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+#team .profile .body h5 {
+  color: var(--sec_color);
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+/************************************* pricing plan *************************************/
+#pricing .card {
+  min-height: 25rem;
+  height: 30rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  overflow: hidden;
+  transition: all 0.32s;
+}
+#pricing .card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.4);
+}
+#pricing .card .title {
+  height: 20%;
+  padding: 1rem;
+  background: #eee;
+  display: grid;
+  place-items: center;
+}
+#pricing .card .title h4 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  text-transform: capitalize;
+}
+#pricing .card .body {
+  height: 80%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+#pricing .card .body .details p {
+  margin-bottom: 0.7rem;
+}
+#pricing .card .body .details p i {
+  color: var(--sec_color);
+}
+#pricing .card .body .price {
+  color: #444;
+  font-size: 1.3rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  margin: 1rem 0;
+}
+#pricing .card .body .price span {
+  color: var(--sec_color);
+  font-family: "Oswald", sans-serif;
+  font-size: 150%;
+  font-weight: 500;
+  margin: 0 4px;
+}
+#pricing .card .body a {
+  text-decoration: none;
+  padding: 0.7rem 1.8rem;
+  letter-spacing: 0.4px;
+  color: #fff;
+  background: var(--sec_color);
+  border: 2px solid #fff;
+  display: inline-block;
+  border-radius: 2px;
+  margin: 1rem 0;
+  transition: all 0.32s;
+}
+#pricing .card .body a:hover {
+  background: transparent;
+  border-color: var(--sec_color);
+  color: var(--sec_color);
+}
+
+/* newsletter */
+#newsletter {
+  min-height: 10rem;
+  background: url("../images/newsletter.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+#newsletter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+#newsletter .container {
+  position: relative;
+}
+#newsletter h2 {
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  text-transform: capitalize;
+  margin-bottom: 1.4rem;
+  text-shadow: 0 0 2px rgba(129, 12, 12, 0.7);
+}
+#newsletter h2 span {
+  color: var(--sec_color);
+}
+#newsletter form {
+  display: flex;
+  background: #fff;
+  border-radius: 4px;
+  max-width: 80%;
+  overflow: hidden;
+}
+#newsletter form input {
+  width: 20rem;
+  max-width: 100%;
+  outline: none;
+  border: none;
+  padding: 8px 10px;
+  letter-spacing: 0.4px;
+}
+#newsletter form button {
+  padding: 0.7rem 1.2rem;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  background: #eee;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+/************************************ what people say ************************************/
+#comments {
+  background: var(--bg_dark);
+}
+#comments .card {
+  display: flex;
+  flex-direction: row;
+  height: 16rem;
+  min-height: 15rem;
+  border: none;
+  margin: 0.8rem 0;
+  overflow: hidden;
+  transition: all 0.27s;
+}
+#comments .card:hover {
+  box-shadow: 0 0 14px rgba(0, 0, 0, 1);
+}
+
+#comments .card img {
+  width: 40%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#comments .card .body {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+#comments .card .body p {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+#comments .card .body h5 {
+  color: var(--sec_color);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/************************************* contact *************************************/
+#contact {
+  padding: 0;
+}
+#contact .content {
+  max-width: 27rem;
+  padding-top: 2rem;
+}
+#contact .content p {
+  color: #999;
+  margin-bottom: 1rem;
+}
+
+#contact form {
+  padding: 1rem;
+  background-color: var(--primary_color);
+}
+
+#contact .inputbox {
+  position: relative;
+}
+
+#contact .inputbox input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #222;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #222;
+  background: transparent;
+  outline: none;
+}
+
+#contact .inputbox label {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  letter-spacing: 1px;
+  padding: 10px 0;
+  color: #111;
+  font-size: 1rem;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+#contact .inputbox input:focus ~ label,
+#contact .inputbox input:valid ~ label {
+  top: -20px;
+  left: 0;
+  font-size: 0.8rem;
+}
+
+#contact input[type="submit"] {
+  background: transparent;
+  border: 2px solid var(--primary_color);
+  outline: none;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #fff;
+  background: var(--sec_color);
+  padding: 0.8rem 1.2rem;
+  border-radius: 2px;
+  font-size: 14px;
+  transition: all 0.27s;
+}
+
+#contact input[type="submit"]:hover {
+  color: #111;
+  background-color: transparent;
+  border-color: var(--sec_color);
+}
+
+#contact iframe {
+  filter: saturate(40%);
+}
+
+/************************************** footer **************************************/
+footer {
+  padding: 4rem 0 2rem 0;
+  background-color: #000;
+}
+footer .col-12 {
+  padding-top: 1.5rem;
+}
+footer h4 {
+  color: #eee;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.2rem;
+}
+footer nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+footer a {
+  text-decoration: none;
+  color: var(--sec_color);
+  color: #999;
+  display: inline-block;
+  transition: all 0.27s;
+}
+footer a:hover {
+  color: var(--sec_color);
+}
+
+footer p {
+  color: #999;
+  margin-bottom: 1rem;
+}
+footer .soc_icon a {
+  font-size: 1.5rem;
+  margin: 4px 8px;
+}
+footer .soc_icon a:first-child {
+  margin-left: 0;
+}
+footer .contact p {
+  margin-bottom: 0.5rem;
+  text-align: right;
+}
+
+footer div.hr {
+  height: 1px;
+  width: 70%;
+  background-color: #444;
+  margin: 1.8rem auto;
+}
+
+footer p.copyright {
+  text-transform: capitalize;
+  letter-spacing: 0.4px;
+  padding: 0 1rem;
+}
+footer p.copyright a {
+  font-size: 110%;
+  text-transform: uppercase;
+  color: var(--sec_color);
+}
